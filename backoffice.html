@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous" />
+    <title>Backoffice</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid px-5">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto d-flex flex-grow-1 mb-2 mb-lg-0">
+            <li class="nav-item me-auto">
+              <a class="nav-link active" aria-current="page" href="./index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./backoffice.html">Backoffice</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container mt-5">
+      <div class="row justify-content-center">
+        <div class="col-8">
+          <h2 class="d-inline-block">Backoffice</h2>
+          <h5 id="subtitle" class="d-inline-block">— Crea nuovo prodotto</h5>
+          <div class="spinner-border text-info float-end d-none" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+          <hr class="border-secondary" />
+          <form class="mt-4" onsubmit="handleSubmit(event)">
+            <div class="mb-3">
+              <label for="name" class="form-label">Nome Prodotto</label>
+              <input type="text" class="form-control" id="name" placeholder="Inserisci un nome" aria-describedby="name" required />
+              <div class="form-text text-danger">Ti manca di inserire un nome per il prodotto</div>
+            </div>
+            <div class="mb-3">
+              <label for="imageUrl" class="form-label">Url immagine Prodotto</label>
+              <input type="text" class="form-control" id="imageUrl" placeholder="Inserisci una Url" aria-describedby="imageUrl" required />
+              <div class="form-text text-danger">Ti manca di inserire una Url per il prodotto</div>
+            </div>
+            <div class="mb-3">
+              <label for="description" class="form-label">Descrizione</label>
+              <textarea
+                class="form-control"
+                id="description"
+                aria-describedby="description"
+                placeholder="Inserisci una descrizione"
+                row="4"
+                required></textarea>
+              <div class="form-text text-danger">Ti manca la descrizione</div>
+            </div>
+            <div class="mb-3">
+              <label for="brand" class="form-label">Brand</label>
+              <textarea
+                class="form-control"
+                id="brand"
+                aria-describedby="brand"
+                placeholder="Inserisci una descrizione"
+                row="4"
+                required></textarea>
+              <div class="form-text text-danger">Ti manca il brand</div>
+            </div>
+            <div class="mb-3">
+              <label for="price" class="form-label">Prezzo</label>
+              <input type="number" class="form-control" id="price" aria-describedby="price" placeholder="1€" required />
+              <div class="form-text text-danger">Ti manca il prezzo</div>
+            </div>
+            <div class="d-flex gap-2">
+              <button type="button" class="btn btn-outline-secondary">Reset</button>
+              <button id="crea-btn" type="submit" class="btn btn-primary me-auto" onclick="handleValidate()">Crea</button>
+              <button id="delete-btn" type="button" class="btn btn-danger d-none" onclick="handleDelete()">Delete</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+      crossorigin="anonymous"></script>
+    <script>
+      const URLParams = new URLSearchParams(window.location.search);
+      const selectedId = URLParams.get("id");
+      const fetchOpt = {
+        headers: {
+          Authorization:
+            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDE0MzQ4M2Y4MWI0MjAwMTM5YjI3ZjUiLCJpYXQiOjE2NzkwNDU3NjMsImV4cCI6MTY4MDI1NTM2M30.lV8g2VQV0zVsy-iRKlhc40_p4WNHnqf5sjKQ97EwCXk",
+        },
+      };
+
+      const endpoint = selectedId
+        ? "https://striveschool-api.herokuapp.com/api/product/" + selectedId
+        : "https://striveschool-api.herokuapp.com/api/product/";
+      const method = selectedId ? "PUT" : "POST";
+
+      const handleValidate = () => {
+        const form = document.querySelector("form");
+        form.classList.add("validated");
+      };
+
+      window.onload = async () => {
+        if (selectedId) {
+          document.getElementById("subtitle").innerText = " — Modifica prodotto";
+          document.getElementById("delete-btn").classList.remove("d-none");
+          const creaButton = document.getElementById("crea-btn");
+          creaButton.classList.remove("btn-primary");
+          creaButton.classList.add("btn-success");
+          creaButton.innerText = "Modifica";
+
+          try {
+            console.log(endpoint);
+            const resp = await fetch(endpoint, fetchOpt);
+            const productData = await resp.json();
+            const { _id, name, description, brand, imageUrl, price, userId, createdAt, updatedAt, __v } = productData;
+
+            document.getElementById("name").value = name;
+            document.getElementById("description").value = description;
+            document.getElementById("imageUrl").value = imageUrl;
+            document.getElementById("brand").value = brand;
+            document.getElementById("price").value = price;
+          } catch (error) {
+            console.log(error);
+          }
+        }
+      };
+
+      const handleSubmit = async (event) => {
+        event.preventDefault();
+
+        const newProduct = {
+          name: document.getElementById("name").value,
+          description: document.getElementById("description").value,
+          imageUrl: document.getElementById("imageUrl").value,
+          brand: document.getElementById("brand").value,
+          price: document.getElementById("price").value,
+        };
+
+        console.log("HERE ON SUBMIT", newProduct);
+
+        try {
+          isLoading(true);
+          const resp = await fetch(endpoint, {
+            method: method,
+            body: JSON.stringify(newProduct),
+            headers: {
+              Authorization:
+                "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDE0MzQ4M2Y4MWI0MjAwMTM5YjI3ZjUiLCJpYXQiOjE2NzkwNDU3NjMsImV4cCI6MTY4MDI1NTM2M30.lV8g2VQV0zVsy-iRKlhc40_p4WNHnqf5sjKQ97EwCXk",
+            },
+          });
+
+          if (resp.ok) {
+            const newProductObj = await resp.json();
+            if (selectedId) {
+              alert("Risorsa con l'id " + newProductObj._id + ", modificata con successo");
+            } else {
+              alert("Risorsa con l'id " + newProductObj._id + ", creata con successo");
+            }
+          } else {
+            throw new Error("La richiesta non è andata a buon fine");
+          }
+        } catch (error) {
+          alert(error);
+        } finally {
+          isLoading(false);
+        }
+      };
+
+      const handleDelete = async () => {
+        isLoading(true);
+
+        const hasAccepted = confirm("Sei convinto di voler elimilare il prodotto?");
+
+        if (hasAccepted) {
+          try {
+            console.log("DELETE");
+
+            const resp = await fetch(endpoint, { method: "DELETE" });
+            const deletedObj = await resp.json();
+
+            alert("Hai eliminato il prodotto " + deletedObj.name);
+
+            window.location.assign("./index.html");
+          } catch (error) {
+            console.log(error);
+          } finally {
+            isLoading(false);
+          }
+        }
+      };
+
+      const isLoading = (loadingState) => {
+        const spinner = document.querySelector(".spinner-border");
+        if (loadingState) {
+          spinner.classList.remove("d-none");
+        } else {
+          spinner.classList.add("d-none");
+        }
+      };
+    </script>
+  </body>
+</html>
