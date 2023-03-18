@@ -67,7 +67,7 @@ hr {
   background-color: #0069d9;
 }
 
-.btn-danger {
+.btn-warning {
   font-size: 16px;
   padding: 12px;
   border-radius: 4px;
@@ -77,7 +77,7 @@ hr {
   transition: all 0.2s;
 }
 
-.btn-danger:hover {
+.btn-warning:hover {
   background-color: #c82333;
 }
 
@@ -98,7 +98,7 @@ hr {
   box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
 }
 
-.form-text.text-danger {
+.form-text.text-warning {
   color: #dc3545;
 }
 
@@ -114,6 +114,6 @@ hr {
 }
 
 /* Imposta lo stile per i messaggi di errore */
-/* .form-text.text-danger {
+/* .form-text.text-warning {
   display: none;
 } */

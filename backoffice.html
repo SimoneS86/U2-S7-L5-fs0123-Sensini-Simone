@@ -58,7 +58,7 @@
                 placeholder="Inserisci un nome"
                 aria-describedby="name"
                 required />
-              <div id="name-form-text" class="form-text text-danger">Nome obbligatorio</div>
+              <div id="name-form-text" class="form-text text-warning">Nome obbligatorio</div>
             </div>
             <div class="mb-3">
               <label for="imageUrl" class="form-label">Url immagine Prodotto</label>
@@ -67,7 +67,9 @@
                 class="form-control"
                 id="imageUrl"
                 placeholder="Inserisci una Url"
-                aria-describedby="imageUrl" />
+                aria-describedby="imageUrl"
+                required />
+              <div id="imageUrl-form-text" class="form-text text-warning">Descrizione obbligatoria</div>
             </div>
             <div class="mb-3">
               <label for="description" class="form-label">Descrizione</label>
@@ -78,7 +80,7 @@
                 placeholder="Inserisci una descrizione"
                 row="4"
                 required></textarea>
-              <div id="description-form-text" class="form-text text-danger">Descrizione obbligatoria</div>
+              <div id="description-form-text" class="form-text text-warning">Descrizione obbligatoria</div>
             </div>
             <div class="mb-3">
               <label for="brand" class="form-label">Brand</label>
@@ -89,7 +91,7 @@
                 placeholder="Inserisci il brand"
                 aria-describedby="brand"
                 required />
-              <div id="brand-form-text" class="form-text text-danger">Brand obbligatorio</div>
+              <div id="brand-form-text" class="form-text text-warning">Brand obbligatorio</div>
             </div>
             <div class="mb-3">
               <label for="price" class="form-label">Prezzo</label>
@@ -100,7 +102,7 @@
                 aria-describedby="price"
                 placeholder="Inserisci il prezzo"
                 required />
-              <div id="price-form-text" class="form-text text-danger">Prezzo obbligatorio</div>
+              <div id="price-form-text" class="form-text text-warning">Prezzo obbligatorio</div>
             </div>
             <div class="d-flex gap-2">
               <button id="reset-btn" type="button" class="btn btn-outline-secondary" onclick="handleReset()">
@@ -109,7 +111,7 @@
               <button id="crea-btn" type="submit" class="btn btn-primary me-auto" onclick="handleValidate()">
                 Crea
               </button>
-              <button id="delete-btn" type="button" class="btn btn-danger d-none" onclick="handleDelete()">
+              <button id="delete-btn" type="button" class="btn btn-warning d-none" onclick="handleDelete()">
                 Delete
               </button>
             </div>
