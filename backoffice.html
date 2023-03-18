@@ -9,6 +9,7 @@
       rel="stylesheet"
       integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
       crossorigin="anonymous" />
+    <link rel="stylesheet" href="./backofficeStyle.css" />
     <title>Backoffice</title>
   </head>
   <body>
@@ -141,6 +142,7 @@
           isLoading(true);
           const form = document.querySelector("form");
           form.querySelectorAll(".form-text.text-danger").forEach((error) => (error.style.display = "none"));
+          form.querySelectorAll(".form-control:required").forEach((elem) => elem.classList.add("is-valid"));
           document.getElementById("subtitle").innerText = " — Modifica prodotto";
           document.getElementById("delete-btn").classList.remove("d-none");
           const creaButton = document.getElementById("crea-btn");
@@ -178,12 +180,14 @@
           document.getElementById("name").classList.add("is-invalid");
         } else {
           document.getElementById("name").classList.remove("is-invalid");
+          document.getElementById("name").classList.add("is-valid");
           document.getElementById("name-form-text").style.display = "none";
         }
         if (!description) {
           document.getElementById("description").classList.add("is-invalid");
         } else {
           document.getElementById("description").classList.remove("is-invalid");
+          ocument.getElementById("description").classList.add("is-valid");
           document.getElementById("description-form-text").style.display = "none";
         }
 
@@ -191,6 +195,7 @@
           document.getElementById("brand").classList.add("is-invalid");
         } else {
           document.getElementById("brand").classList.remove("is-invalid");
+          ocument.getElementById("brand").classList.add("is-valid");
           document.getElementById("brand-form-text").style.display = "none";
         }
 
@@ -198,6 +203,7 @@
           document.getElementById("price").classList.add("is-invalid");
         } else {
           document.getElementById("price").classList.remove("is-invalid");
+          ocument.getElementById("price").classList.add("is-valid");
           document.getElementById("price-form-text").style.display = "none";
         }
       };
@@ -272,12 +278,16 @@
             isLoading(false);
           }
         }
+        isLoading(false);
       };
       const handleReset = function () {
-        const form = document.querySelector("form");
-        form.reset();
-        form.querySelectorAll(".form-text.text-danger").forEach((error) => (error.style.display = "block"));
-        form.querySelectorAll(".form-control:required").forEach((elem) => elem.classList.add("is-invalid"));
+        const hasAccepted = confirm("Sei sicuro di voler cancellare tutti i campi inseriti?");
+        if (hasAccepted) {
+          const form = document.querySelector("form");
+          form.reset();
+          form.querySelectorAll(".form-text.text-danger").forEach((error) => (error.style.display = "block"));
+          form.querySelectorAll(".form-control:required").forEach((elem) => elem.classList.add("is-invalid"));
+        }
       };
 
       const handleError = (response) => {

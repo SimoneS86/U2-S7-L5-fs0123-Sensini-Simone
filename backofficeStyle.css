@@ -1,0 +1,119 @@
+/* Imposta il font globale per il form */
+body {
+  font-family: Arial, sans-serif;
+}
+
+/* Imposta lo stile della sezione "Backoffice" */
+h2 {
+  font-size: 36px;
+  font-weight: bold;
+  margin: 0;
+}
+
+h5 {
+  font-size: 24px;
+  font-weight: normal;
+  margin-left: 8px;
+  color: #777;
+}
+
+hr {
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
+/* Imposta lo stile degli elementi del form */
+.form-label {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.form-control {
+  font-size: 16px;
+  padding: 12px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.form-text {
+  font-size: 14px;
+  margin-top: 4px;
+}
+
+.btn-outline-secondary {
+  font-size: 16px;
+  padding: 12px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  color: #333;
+  transition: all 0.2s;
+}
+
+.btn-outline-secondary:hover {
+  background-color: #ccc;
+}
+
+.btn-primary {
+  font-size: 16px;
+  padding: 12px;
+  border-radius: 4px;
+  border: none;
+  background-color: #007bff;
+  color: #fff;
+  transition: all 0.2s;
+}
+
+.btn-primary:hover {
+  background-color: #0069d9;
+}
+
+.btn-danger {
+  font-size: 16px;
+  padding: 12px;
+  border-radius: 4px;
+  border: none;
+  background-color: #dc3545;
+  color: #fff;
+  transition: all 0.2s;
+}
+
+.btn-danger:hover {
+  background-color: #c82333;
+}
+
+/* Imposta lo stile per il feedback visivo durante la validazione */
+.form-control:required {
+  border-color: #dc3545;
+}
+
+.form-control:required:focus {
+  box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
+}
+
+.form-control:valid {
+  border-color: #28a745;
+}
+
+.form-control:valid:focus {
+  box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
+}
+
+.form-text.text-danger {
+  color: #dc3545;
+}
+
+/* Imposta lo stile per lo spinner di caricamento */
+.spinner-border {
+  margin-top: 16px;
+  margin-left: 8px;
+}
+
+/* Imposta lo stile per il pulsante di reset */
+#reset-btn {
+  margin-right: 8px;
+}
+
+/* Imposta lo stile per i messaggi di errore */
+/* .form-text.text-danger {
+  display: none;
+} */
