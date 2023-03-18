@@ -50,13 +50,23 @@
           <form class="mt-4" onsubmit="handleSubmit(event)">
             <div class="mb-3">
               <label for="name" class="form-label">Nome Prodotto</label>
-              <input type="text" class="form-control" id="name" placeholder="Inserisci un nome" aria-describedby="name" required />
-              <div class="form-text text-danger">Ti manca di inserire un nome per il prodotto</div>
+              <input
+                type="text"
+                class="form-control"
+                id="name"
+                placeholder="Inserisci un nome"
+                aria-describedby="name"
+                required />
+              <div id="name-form-text" class="form-text text-danger">Manca il nome</div>
             </div>
             <div class="mb-3">
               <label for="imageUrl" class="form-label">Url immagine Prodotto</label>
-              <input type="text" class="form-control" id="imageUrl" placeholder="Inserisci una Url" aria-describedby="imageUrl" required />
-              <div class="form-text text-danger">Ti manca di inserire una Url per il prodotto</div>
+              <input
+                type="text"
+                class="form-control"
+                id="imageUrl"
+                placeholder="Inserisci una Url"
+                aria-describedby="imageUrl" />
             </div>
             <div class="mb-3">
               <label for="description" class="form-label">Descrizione</label>
@@ -67,7 +77,7 @@
                 placeholder="Inserisci una descrizione"
                 row="4"
                 required></textarea>
-              <div class="form-text text-danger">Ti manca la descrizione</div>
+              <div id="description-form-text" class="form-text text-danger">Manca la descrizione</div>
             </div>
             <div class="mb-3">
               <label for="brand" class="form-label">Brand</label>
@@ -78,17 +88,23 @@
                 placeholder="Inserisci una descrizione"
                 row="4"
                 required></textarea>
-              <div class="form-text text-danger">Ti manca il brand</div>
+              <div id="brand-form-text" class="form-text text-danger">Manca il brand</div>
             </div>
             <div class="mb-3">
               <label for="price" class="form-label">Prezzo</label>
               <input type="number" class="form-control" id="price" aria-describedby="price" placeholder="1€" required />
-              <div class="form-text text-danger">Ti manca il prezzo</div>
+              <div id="price-form-text" class="form-text text-danger">Manca il prezzo</div>
             </div>
             <div class="d-flex gap-2">
-              <button type="button" class="btn btn-outline-secondary">Reset</button>
-              <button id="crea-btn" type="submit" class="btn btn-primary me-auto" onclick="handleValidate()">Crea</button>
-              <button id="delete-btn" type="button" class="btn btn-danger d-none" onclick="handleDelete()">Delete</button>
+              <button id="reset-btn" type="button" class="btn btn-outline-secondary" onclick="handleReset()">
+                Reset
+              </button>
+              <button id="crea-btn" type="submit" class="btn btn-primary me-auto" onclick="handleValidate()">
+                Crea
+              </button>
+              <button id="delete-btn" type="button" class="btn btn-danger d-none" onclick="handleDelete()">
+                Delete
+              </button>
             </div>
           </form>
         </div>
@@ -114,13 +130,44 @@
         : "https://striveschool-api.herokuapp.com/api/product/";
       const method = selectedId ? "PUT" : "POST";
 
-      const handleValidate = () => {
-        const form = document.querySelector("form");
-        form.classList.add("validated");
+      const handleValidate = function () {
+        const name = document.getElementById("name").value.trim();
+        const description = document.getElementById("description").value.trim();
+        const brand = document.getElementById("brand").value.trim();
+        const price = document.getElementById("price").value.trim();
+
+        if (!name) {
+          document.getElementById("name").classList.add("is-invalid");
+        } else {
+          document.getElementById("name").classList.remove("is-invalid");
+          document.getElementById("name-form-text").style.display = "none";
+        }
+        if (!description) {
+          document.getElementById("description").classList.add("is-invalid");
+        } else {
+          document.getElementById("description").classList.remove("is-invalid");
+          document.getElementById("description-form-text").style.display = "none";
+        }
+
+        if (!brand) {
+          document.getElementById("brand").classList.add("is-invalid");
+        } else {
+          document.getElementById("brand").classList.remove("is-invalid");
+          document.getElementById("brand-form-text").style.display = "none";
+        }
+
+        if (!price) {
+          document.getElementById("price").classList.add("is-invalid");
+        } else {
+          document.getElementById("price").classList.remove("is-invalid");
+          document.getElementById("price-form-text").style.display = "none";
+        }
       };
 
       window.onload = async () => {
         if (selectedId) {
+          const form = document.querySelector("form");
+          form.querySelectorAll(".form-text.text-danger").forEach((error) => (error.style.display = "none"));
           document.getElementById("subtitle").innerText = " — Modifica prodotto";
           document.getElementById("delete-btn").classList.remove("d-none");
           const creaButton = document.getElementById("crea-btn");
@@ -196,7 +243,14 @@
           try {
             console.log("DELETE");
 
-            const resp = await fetch(endpoint, { method: "DELETE" });
+            const resp = await fetch(endpoint, {
+              method: "DELETE",
+              headers: {
+                Authorization:
+                  "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDE0MzQ4M2Y4MWI0MjAwMTM5YjI3ZjUiLCJpYXQiOjE2NzkwNDU3NjMsImV4cCI6MTY4MDI1NTM2M30.lV8g2VQV0zVsy-iRKlhc40_p4WNHnqf5sjKQ97EwCXk",
+                "Content-Type": "application/json",
+              },
+            });
             const deletedObj = await resp.json();
 
             alert("Hai eliminato il prodotto " + deletedObj.name);
@@ -208,6 +262,12 @@
             isLoading(false);
           }
         }
+      };
+      const handleReset = function () {
+        const form = document.querySelector("form");
+        form.reset();
+        form.querySelectorAll(".form-text.text-danger").forEach((error) => (error.style.display = "block"));
+        form.querySelectorAll(".form-control:required").forEach((elem) => elem.classList.add("is-invalid"));
       };
 
       const isLoading = (loadingState) => {
