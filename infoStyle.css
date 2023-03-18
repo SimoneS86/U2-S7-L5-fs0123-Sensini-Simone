@@ -1,0 +1,34 @@
+/* Stile generale della pagina */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f7f7f7;
+}
+
+/* Stile del contenitore principale */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Stile del titolo del prodotto */
+h4 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Stile della sezione del dettaglio prodotto */
+#product-details {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Stile del caricamento spinner */
+.spinner-border {
+  display: block;
+  margin: 0 auto;
+  margin-top: 50px;
+}
