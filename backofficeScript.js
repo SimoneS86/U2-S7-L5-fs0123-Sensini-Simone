@@ -123,6 +123,7 @@ const handleSubmit = async (event) => {
   } finally {
     isLoading(false);
   }
+  window.location.assign("./index.html?id=" + selectedId);
 };
 
 const handleDelete = async () => {
