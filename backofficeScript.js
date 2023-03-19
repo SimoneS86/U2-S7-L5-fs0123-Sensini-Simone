@@ -151,7 +151,7 @@ const handleDelete = async () => {
 };
 
 const handleReset = function () {
-  const hasAccepted = confirm("Sei sicuro di voler cancellare tutti i campi inseriti?");
+  const hasAccepted = confirm("Sei sicuro di voler svuotare i campi compilati?");
   if (hasAccepted) {
     const form = document.querySelector("form");
     form.reset();
