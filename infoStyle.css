@@ -1,11 +1,9 @@
-/* Stile generale della pagina */
 body {
   background-color: lemonchiffon;
+  font-family: "Roboto", sans-serif;
 }
 
-/* Stile del contenitore principale */
 .container-fluid {
-  /* max-width: 800px;*/
   margin: 0;
 }
 
@@ -14,7 +12,7 @@ body {
   max-height: 550px;
   box-sizing: border-box;
 }
-/* Stile del titolo del prodotto */
+
 h3 {
   font-size: 24px;
   font-weight: bold;
@@ -26,7 +24,6 @@ h5 {
   background-color: lemonchiffon;
 }
 
-/* Stile della sezione del dettaglio prodotto */
 #product-details {
   background-color: #ffeb91;
   padding: 30px;
@@ -89,50 +86,3 @@ footer {
   margin: 0 auto;
   margin-top: 50px;
 }
-
-/* Background e colori */
-/* .navbar {
-  background-color: #f49d1a;
-}
-.navbar-brand,
-.navbar-nav .nav-link {
-  color: #101010;
-}
-.navbar-brand img {
-  width: 60px;
-} */
-
-/* Hover sui link */
-/* .navbar-nav .nav-link:hover {
-  color: #ffd700;
-} */
-
-/* Bottone del toggler */
-/* .navbar-toggler {
-  border-color: #1b1b1b;
-}
-.nav-link {
-  font-size: 1.3rem;
-  font-weight: bold;
-} */
-/* Icona del bottone del toggler */
-/* .navbar-toggler-icon {
-  background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3e%3cpath stroke='rgba(255, 215, 0, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
-} */
-
-/* Link attivo */
-/* .navbar-nav .active > .nav-link {
-  color: #ffd700;
-} */
-
-/* Dropdown */
-/* .dropdown-menu {
-  background-color: #222;
-}
-.dropdown-item {
-  color: #fff;
-}
-.dropdown-item:hover {
-  background-color: #ffd700;
-  color: #222;
-} */

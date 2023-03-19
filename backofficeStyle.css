@@ -1,113 +1,4 @@
-/* Background e colori */
-.navbar {
-  background-color: #f49d1a;
-}
-.navbar-brand,
-.navbar-nav .nav-link {
-  color: #101010;
-}
-.navbar-brand img {
-  width: 60px;
-}
-
-/* Hover sui link */
-.navbar-nav .nav-link:hover {
-  color: #ffd700;
-}
-
-/* Bottone del toggler */
-.navbar-toggler {
-  border-color: #1b1b1b;
-}
-.nav-link {
-  font-size: 1.3rem;
-  font-weight: bold;
-}
-
-/* Imposta il font globale per il form */
-body {
-  font-family: Arial, sans-serif;
-}
-
-/* Imposta lo stile della sezione "Backoffice" */
-h2 {
-  font-size: 36px;
-  font-weight: bold;
-  margin: 0;
-}
-
-h5 {
-  font-size: 24px;
-  font-weight: normal;
-  margin-left: 8px;
-  color: #777;
-}
-
-hr {
-  margin-top: 16px;
-  margin-bottom: 16px;
-}
-
-/* Imposta lo stile degli elementi del form */
-.form-label {
-  font-size: 18px;
-  font-weight: bold;
-}
-
-.form-control {
-  font-size: 16px;
-  padding: 12px;
-  border-radius: 4px;
-  border: 1px solid #ccc;
-}
-
-.form-text {
-  font-size: 14px;
-  margin-top: 4px;
-}
-
-.btn-outline-secondary {
-  font-size: 16px;
-  padding: 12px;
-  border-radius: 4px;
-  border: 1px solid #ccc;
-  color: #333;
-  transition: all 0.2s;
-}
-
-.btn-outline-secondary:hover {
-  background-color: #ccc;
-}
-
-.btn-primary {
-  font-size: 16px;
-  padding: 12px;
-  border-radius: 4px;
-  border: none;
-  background-color: #007bff;
-  color: #fff;
-  transition: all 0.2s;
-}
-
-.btn-primary:hover {
-  background-color: #0069d9;
-}
-
-.btn-warning {
-  font-size: 16px;
-  padding: 12px;
-  border-radius: 4px;
-  border: none;
-  background-color: #dc3545;
-  color: #fff;
-  transition: all 0.2s;
-}
-
-.btn-warning:hover {
-  background-color: #c82333;
-}
-
-/* Imposta lo stile per il feedback visivo durante la validazione */
+/*
 .form-control:required {
   border-color: #dc3545;
 }
@@ -128,18 +19,57 @@ hr {
   color: #dc3545;
 }
 
-/* Imposta lo stile per lo spinner di caricamento */
+
+*/
+body {
+  background-color: #ffeb91;
+  font-family: "Roboto", sans-serif;
+}
+
+.navbar {
+  background-color: rgb(42, 42, 42);
+  margin-bottom: 22px;
+}
+.navbar-brand,
+.navbar-nav .nav-link {
+  color: lemonchiffon;
+}
+
+.navbar-brand img {
+  width: 60px;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #ffd700;
+}
+.navbar-toggler-icon {
+  color: lemonchiffon;
+}
+
+.navbar-toggler {
+  border-color: lemonchiffon;
+}
+.nav-link {
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+.form-control {
+  background-color: lemonchiffon;
+}
+#subtitle {
+  font-style: italic;
+}
+
+footer {
+  color: lemonchiffon;
+  background-color: rgb(42, 42, 42);
+  font-size: 0.8rem;
+  text-align: center;
+}
+.list-inline-item a img {
+  width: 25px;
+}
 .spinner-border {
-  margin-top: 16px;
-  margin-left: 8px;
+  width: 100px;
+  height: 100px;
 }
-
-/* Imposta lo stile per il pulsante di reset */
-#reset-btn {
-  margin-right: 8px;
-}
-
-/* Imposta lo stile per i messaggi di errore */
-/* .form-text.text-warning {
-  display: none;
-} */

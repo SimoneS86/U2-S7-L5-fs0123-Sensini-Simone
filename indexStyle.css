@@ -1,5 +1,6 @@
 body {
   background-color: lemonchiffon;
+  font-family: "Roboto", sans-serif;
 }
 
 .navbar {
@@ -38,11 +39,11 @@ h2 {
 h2 img {
   width: 40px;
 }
-
 .card {
   background-color: #ffeb91;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 15px;
+  box-sizing: border-box;
   transition: all 0.3s ease-in-out;
   overflow: hidden;
 }

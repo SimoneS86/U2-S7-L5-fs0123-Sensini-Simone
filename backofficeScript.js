@@ -18,7 +18,7 @@ window.onload = async () => {
     const form = document.querySelector("form");
     form.querySelectorAll(".form-text.text-warning").forEach((error) => (error.style.display = "none"));
     form.querySelectorAll(".form-control:required").forEach((elem) => elem.classList.add("is-valid"));
-    document.getElementById("subtitle").innerText = " — Modifica prodotto";
+    document.getElementById("subtitle").innerText = "Modifica prodotto";
     document.getElementById("delete-btn").classList.remove("d-none");
     const creaButton = document.getElementById("crea-btn");
     creaButton.classList.remove("btn-primary");
@@ -50,6 +50,7 @@ const handleValidate = function () {
   const description = document.getElementById("description").value.trim();
   const brand = document.getElementById("brand").value.trim();
   const price = document.getElementById("price").value.trim();
+  const imageUrl = document.getElementById("imageUrl").value.trim();
 
   if (!name) {
     document.getElementById("name").classList.add("is-invalid");
@@ -62,7 +63,7 @@ const handleValidate = function () {
     document.getElementById("description").classList.add("is-invalid");
   } else {
     document.getElementById("description").classList.remove("is-invalid");
-    ocument.getElementById("description").classList.add("is-valid");
+    document.getElementById("description").classList.add("is-valid");
     document.getElementById("description-form-text").style.display = "none";
   }
 
@@ -70,15 +71,22 @@ const handleValidate = function () {
     document.getElementById("brand").classList.add("is-invalid");
   } else {
     document.getElementById("brand").classList.remove("is-invalid");
-    ocument.getElementById("brand").classList.add("is-valid");
+    document.getElementById("brand").classList.add("is-valid");
     document.getElementById("brand-form-text").style.display = "none";
+  }
+  if (!imageUrl) {
+    document.getElementById("imageUrl").classList.add("is-invalid");
+  } else {
+    document.getElementById("imageUrl").classList.remove("is-invalid");
+    document.getElementById("imageUrl").classList.add("is-valid");
+    document.getElementById("imageUrl-form-text").style.display = "none";
   }
 
   if (!price) {
     document.getElementById("price").classList.add("is-invalid");
   } else {
     document.getElementById("price").classList.remove("is-invalid");
-    ocument.getElementById("price").classList.add("is-valid");
+    document.getElementById("price").classList.add("is-valid");
     document.getElementById("price-form-text").style.display = "none";
   }
 };
