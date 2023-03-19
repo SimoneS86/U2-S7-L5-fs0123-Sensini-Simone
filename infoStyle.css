@@ -1,7 +1,6 @@
 /* Stile generale della pagina */
 body {
-  font-family: Arial, sans-serif;
-  background-color: #f7f7f7;
+  background-color: lemonchiffon;
 }
 
 /* Stile del contenitore principale */
@@ -11,19 +10,39 @@ body {
 }
 
 /* Stile del titolo del prodotto */
-h4 {
+h3 {
   font-size: 24px;
   font-weight: bold;
   margin-bottom: 20px;
   color: #333;
 }
+h2 {
+  background-color: lemonchiffon;
+}
+h5 {
+  background-color: lemonchiffon;
+}
+.big {
+  font-size: 1.3rem;
+}
 
 /* Stile della sezione del dettaglio prodotto */
 #product-details {
-  background-color: #fff;
+  background-color: #ffeb91;
   padding: 30px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+#changeBtn {
+  color: lemonchiffon;
+  background-color: rgb(42, 42, 42);
+  border-color: gray;
+}
+#changeBtn:hover {
+  color: rgb(42, 42, 42);
+  background-color: #f49d1a;
+  border-color: rgb(42, 42, 42);
+  border: 2px solid;
 }
 
 .navbar {
@@ -62,6 +81,7 @@ footer {
 .list-inline-item a img {
   width: 25px;
 }
+
 .spinner-border {
   width: 100px;
   height: 100px;

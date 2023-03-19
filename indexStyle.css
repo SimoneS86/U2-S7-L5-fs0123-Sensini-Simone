@@ -42,6 +42,7 @@ h2 img {
 .card {
   background-color: #ffeb91;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
   transition: all 0.3s ease-in-out;
   overflow: hidden;
 }
@@ -57,7 +58,7 @@ h2 img {
 }
 
 .card-img-top {
-  height: 12rem;
+  height: 16rem;
   object-fit: cover;
 }
 

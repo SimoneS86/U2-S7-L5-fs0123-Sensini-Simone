@@ -21,19 +21,24 @@ window.onload = async () => {
     const { _id, name, description, brand, imageUrl, price, userId, createdAt, updatedAt, __v } = productData;
 
     container.innerHTML = `
-                    <h1 class="fw-bold">${name}</h1>
-                    <p>${price}€</p>
-                    <p>${description}</p>
-                    <p>${brand}</p>
+                    <h2 class="fw-bold py-3 ps-2 mb-4">Dettagli Birra:</h2>
+                    <p class="big"><strong>Nome: </strong> ${name}</p>
+                    <hr>
+                    <p class="big"><strong>Prezzo: </strong>${price}€</p>
+                    <hr>
+                    <p class="big"><strong>Descrizione: </strong>${description}</p>
+                    <hr>
+                    <p class="big"><strong>Brand: </strong>${brand}</p>
+                    <hr>
                     
-                    <h6 class="bg-light py-3 ps-2">Server Details</h6>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item ps-2"><strong>id:</strong> ${_id}</li>
-                        <li class="list-group-item ps-2"><strong>userId:</strong> ${userId}</li>
-                        <li class="list-group-item ps-2"><strong>createdAt:</strong> ${createdAt}</li>
-                        <li class="list-group-item ps-2"><strong>updatedAt:</strong> ${updatedAt}</li>
+                    <h5 class="fw-bold py-3 ps-2">Server Details</h5>
+                    <ul class="list-group list-group-flush ">
+                        <li class="list-group-item ps-2 bg-warning"><strong>id:</strong> ${_id}</li>
+                        <li class="list-group-item ps-2 bg-warning"><strong>userId:</strong> ${userId}</li>
+                        <li class="list-group-item ps-2 bg-warning"><strong>createdAt:</strong> ${createdAt}</li>
+                        <li class="list-group-item ps-2 bg-warning"><strong>updatedAt:</strong> ${updatedAt}</li>
                     </ul>
-                    <button class="btn btn-success mt-3" onclick="handleClick()">Modifica prodotto</button>
+                    <button id="changeBtn" class="btn mt-5" onclick="handleClick()">Modifica prodotto</button>
                     `;
   } catch (err) {
     alert("ERROR: " + err.message);
