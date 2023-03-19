@@ -16,7 +16,7 @@ window.onload = async () => {
   if (selectedId) {
     isLoading(true);
     const form = document.querySelector("form");
-    form.querySelectorAll(".form-text.text-warning").forEach((error) => (error.style.display = "none"));
+    form.querySelectorAll(".form-text.text-danger").forEach((error) => (error.style.display = "none"));
     form.querySelectorAll(".form-control:required").forEach((elem) => elem.classList.add("is-valid"));
     document.getElementById("subtitle").innerText = "Modifica prodotto";
     document.getElementById("delete-btn").classList.remove("d-none");
@@ -169,7 +169,7 @@ const handleReset = function () {
   if (hasAccepted) {
     const form = document.querySelector("form");
     form.reset();
-    form.querySelectorAll(".form-text.text-warning").forEach((error) => (error.style.display = "block"));
+    form.querySelectorAll(".form-text.text-danger").forEach((error) => (error.style.display = "block"));
     form.querySelectorAll(".form-control:required").forEach((elem) => elem.classList.add("is-invalid"));
   }
 };

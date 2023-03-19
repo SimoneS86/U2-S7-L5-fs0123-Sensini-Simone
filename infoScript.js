@@ -26,8 +26,8 @@ window.onload = async () => {
                     <ul class="list-group list-group-flush ">
                         <li class="list-group-item ps-2 bg-warning"><strong>Nome:</strong> ${name}</li>
                         <li class="list-group-item ps-2 bg-warning"><strong>Brand:</strong> ${brand}</li>
-                        <li class="list-group-item ps-2 bg-warning"><strong>Description:</strong> ${description}</li>
-                        <li class="list-group-item ps-2 bg-warning"><strong>Price:</strong> ${price}</li>
+                        <li class="list-group-item ps-2 bg-warning"><strong>Descrizione:</strong> ${description}</li>
+                        <li class="list-group-item ps-2 bg-warning"><strong>Prezzo:</strong> ${price}€</li>
                     </ul>
                     
                     <h5 class="fw-bold py-3 ps-2 my-3">Server Details</h5>
