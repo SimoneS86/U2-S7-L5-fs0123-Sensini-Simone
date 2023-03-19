@@ -1,3 +1,29 @@
+/* Background e colori */
+.navbar {
+  background-color: #f49d1a;
+}
+.navbar-brand,
+.navbar-nav .nav-link {
+  color: #101010;
+}
+.navbar-brand img {
+  width: 60px;
+}
+
+/* Hover sui link */
+.navbar-nav .nav-link:hover {
+  color: #ffd700;
+}
+
+/* Bottone del toggler */
+.navbar-toggler {
+  border-color: #1b1b1b;
+}
+.nav-link {
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
 /* Imposta il font globale per il form */
 body {
   font-family: Arial, sans-serif;

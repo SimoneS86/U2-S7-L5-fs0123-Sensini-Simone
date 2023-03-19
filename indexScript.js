@@ -24,8 +24,8 @@ const fetchPrincipale = async () => {
                             <p class="card-text">${product.brand}</p>
                             <p class="card-text">${product.price}€</p>
                             
-                            <a href="./info.html?id=${product._id}" id="info-button" class="btn btn-primary">Scopri di più</a>
-                            <a href="./backoffice.html?id=${product._id}" id="modifica-button" class="btn btn-primary">Modifica</a>
+                            <a href="./info.html?id=${product._id}" id="info-button" class="btn ">Scopri di più</a>
+                            <a href="./backoffice.html?id=${product._id}" id="modifica-button" class="btn ">Modifica</a>
                         </div>
                     </div>
                     `;

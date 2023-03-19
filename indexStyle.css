@@ -1,4 +1,42 @@
+body {
+  background-color: lemonchiffon;
+}
+/* Background e colori */
+.navbar {
+  background-color: rgb(42, 42, 42);
+}
+.navbar-brand,
+.navbar-nav .nav-link {
+  color: lemonchiffon;
+}
+
+.navbar-brand img {
+  width: 60px;
+}
+
+/* Hover sui link */
+.navbar-nav .nav-link:hover {
+  color: #ffd700;
+}
+.navbar-toggler-icon {
+  color: lemonchiffon;
+}
+
+/* Bottone del toggler */
+.navbar-toggler {
+  border-color: lemonchiffon;
+}
+.nav-link {
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+h1 {
+  font-size: 3.8rem;
+}
+
 .card {
+  background-color: #ffeb91;
   width: 18rem;
   margin-bottom: 1.5rem;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -36,21 +74,33 @@
 }
 
 #info-button {
-  background-color: #007bff;
-  border-color: #007bff;
+  color: lemonchiffon;
+  background-color: rgb(42, 42, 42);
+  border-color: gray;
 }
 
 #info-button:hover {
-  background-color: #0069d9;
-  border-color: #0062cc;
+  color: rgb(42, 42, 42);
+  background-color: transparent;
+  border-color: rgb(42, 42, 42);
+  border: 3px solid;
 }
 
 #modifica-button {
-  background-color: orange;
-  border-color: rgba(255, 166, 0, 0.765);
+  color: lemonchiffon;
+  background-color: rgb(42, 42, 42);
+  border-color: gray;
 }
 
 #modifica-button:hover {
-  background-color: rgba(224, 146, 0, 0.641);
-  border-color: rgba(194, 126, 0, 0.467);
+  color: rgb(42, 42, 42);
+  background-color: #f49d1a;
+  border-color: rgb(42, 42, 42);
+  border: 3px solid;
+}
+footer {
+  color: lemonchiffon;
+  background-color: rgb(42, 42, 42);
+  font-size: 0.8rem;
+  text-align: center;
 }
