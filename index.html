@@ -13,9 +13,9 @@
     <title>CRUDAZON</title>
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <nav class="navbar navbar-expand-lg">
       <div class="container-fluid px-5">
-        <a class="navbar-brand" href="#">Navbar</a>
+        <a class="navbar-brand" href="./index.html"><img src="./img/beer.png" alt="beer logo" /></a>
         <button
           class="navbar-toggler"
           type="button"
@@ -29,7 +29,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto d-flex flex-grow-1 mb-2 mb-lg-0">
             <li class="nav-item me-auto">
-              <a class="nav-link active" aria-current="page" href="./index.html">Home</a>
+              <a class="nav-link" aria-current="page" href="./index.html">Home</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="./backoffice.html">Backoffice</a>
@@ -39,10 +39,51 @@
       </div>
     </nav>
 
-    <div class="container">
+    <h1 class="d-flex justify-content-center mt-4"><em>Craft Beer</em></h1>
+
+    <div class="container mt-4">
       <div class="spinner-border text-info d-none" role="status"></div>
       <div id="product-container" class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4"></div>
     </div>
+
+    <footer class="footer py-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4">
+            <h4>Chi siamo</h4>
+            <p>
+              Siamo un birrificio artigianale che produce birra di alta qualità, utilizzando solo ingredienti naturali e
+              seguendo le ricette tradizionali.
+            </p>
+          </div>
+          <div class="col-md-4">
+            <h4>Contattaci</h4>
+            <p>
+              Via delle Birre, 1<br />00100 Roma<br />Telefono: 06 12345678<br />Email: info@birrificioartigianale.it
+            </p>
+          </div>
+          <div class="col-md-4">
+            <h4>Social</h4>
+            <ul class="list-inline">
+              <li class="list-inline-item">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#"><i class="fab fa-twitter"></i></a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#"><i class="fab fa-instagram"></i></a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#"><i class="fab fa-youtube"></i></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <hr />
+        <p class="text-center">&copy; 2023 Birrificio Artigianale</p>
+      </div>
+    </footer>
 
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
