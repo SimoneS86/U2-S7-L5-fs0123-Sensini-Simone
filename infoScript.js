@@ -1,7 +1,5 @@
 const URLParams = new URLSearchParams(window.location.search);
 const selectedId = URLParams.get("id");
-console.log("SELECTED ID: ", selectedId);
-
 const fetchOpt = {
   headers: {
     Authorization:
@@ -17,8 +15,6 @@ window.onload = async () => {
     const res = await fetch("https://striveschool-api.herokuapp.com/api/product/" + selectedId, fetchOpt);
     handleError(res);
     const productData = await res.json();
-    console.log(productData);
-
     const { _id, name, description, brand, imageUrl, price, userId, createdAt, updatedAt, __v } = productData;
     containerImg.innerHTML = `<img class="dimension" src="${imageUrl}" alt="beer logo" />`;
     container.innerHTML = `
@@ -30,7 +26,7 @@ window.onload = async () => {
                         <li class="list-group-item ps-2 bg-warning"><strong>Prezzo:</strong> ${price}€</li>
                     </ul>
                     
-                    <h5 class="fw-bold py-3 ps-2 my-3">Server Details</h5>
+                    <h5 class="fw-bold py-3 ps-2 my-3">Server Details:</h5>
                     <ul class="list-group list-group-flush ">
                         <li class="list-group-item ps-2 bg-warning"><strong>id:</strong> ${_id}</li>
                         <li class="list-group-item ps-2 bg-warning"><strong>userId:</strong> ${userId}</li>

@@ -1,18 +1,14 @@
 const fetchPrincipale = async () => {
   isLoading(true);
-  console.log("inizio");
-
   const fetchOpt = {
     headers: {
       Authorization:
         "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDE0MzQ4M2Y4MWI0MjAwMTM5YjI3ZjUiLCJpYXQiOjE2NzkwNDU3NjMsImV4cCI6MTY4MDI1NTM2M30.lV8g2VQV0zVsy-iRKlhc40_p4WNHnqf5sjKQ97EwCXk",
     },
   };
-
   try {
     const products = await fetchWithErrors("https://striveschool-api.herokuapp.com/api/product/", fetchOpt);
     const grid = document.getElementById("product-container");
-
     products.forEach((product) => {
       const col = document.createElement("div");
       col.className = "col";
@@ -29,7 +25,6 @@ const fetchPrincipale = async () => {
                         </div>
                     </div>
                     `;
-
       grid.appendChild(col);
     });
   } catch (err) {
@@ -41,7 +36,6 @@ const fetchPrincipale = async () => {
 
 window.onload = () => {
   fetchPrincipale();
-  console.log("ultimo");
 };
 
 const fetchWithErrors = async (url, options) => {
