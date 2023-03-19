@@ -1,7 +1,7 @@
 body {
   background-color: lemonchiffon;
 }
-/* Background e colori */
+
 .navbar {
   background-color: rgb(42, 42, 42);
 }
@@ -14,7 +14,6 @@ body {
   width: 60px;
 }
 
-/* Hover sui link */
 .navbar-nav .nav-link:hover {
   color: #ffd700;
 }
@@ -22,7 +21,6 @@ body {
   color: lemonchiffon;
 }
 
-/* Bottone del toggler */
 .navbar-toggler {
   border-color: lemonchiffon;
 }
@@ -30,15 +28,19 @@ body {
   font-size: 1.3rem;
   font-weight: bold;
 }
-
 h1 {
   font-size: 3.8rem;
 }
 
+h2 {
+  font-size: 2.2rem;
+}
+h2 img {
+  width: 40px;
+}
+
 .card {
   background-color: #ffeb91;
-  width: 18rem;
-  margin-bottom: 1.5rem;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease-in-out;
   overflow: hidden;
@@ -81,9 +83,9 @@ h1 {
 
 #info-button:hover {
   color: rgb(42, 42, 42);
-  background-color: transparent;
+  background-color: lemonchiffon;
   border-color: rgb(42, 42, 42);
-  border: 3px solid;
+  border: 2px solid;
 }
 
 #modifica-button {
@@ -96,11 +98,18 @@ h1 {
   color: rgb(42, 42, 42);
   background-color: #f49d1a;
   border-color: rgb(42, 42, 42);
-  border: 3px solid;
+  border: 2px solid;
 }
 footer {
   color: lemonchiffon;
   background-color: rgb(42, 42, 42);
   font-size: 0.8rem;
   text-align: center;
+}
+.list-inline-item a img {
+  width: 25px;
+}
+.spinner-border {
+  width: 100px;
+  height: 100px;
 }

@@ -17,7 +17,7 @@ const fetchPrincipale = async () => {
       const col = document.createElement("div");
       col.className = "col";
       col.innerHTML += `
-                    <div class="card">
+                    <div class="card ">
                         <img src="${product.imageUrl}" class="card-img-top" alt="img libro">
                         <div class="card-body">
                             <h5 class="card-title">${product.name}</h5>
