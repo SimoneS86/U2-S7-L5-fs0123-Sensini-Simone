@@ -6,7 +6,6 @@ const fetchOpt = {
       "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDE0MzQ4M2Y4MWI0MjAwMTM5YjI3ZjUiLCJpYXQiOjE2NzkwNDU3NjMsImV4cCI6MTY4MDI1NTM2M30.lV8g2VQV0zVsy-iRKlhc40_p4WNHnqf5sjKQ97EwCXk",
   },
 };
-
 const endpoint = selectedId
   ? "https://striveschool-api.herokuapp.com/api/product/" + selectedId
   : "https://striveschool-api.herokuapp.com/api/product/";
@@ -16,22 +15,17 @@ window.onload = async () => {
   if (selectedId) {
     isLoading(true);
     const form = document.querySelector("form");
-    form.querySelectorAll(".form-text.text-danger").forEach((error) => (error.style.display = "none"));
+    form.querySelectorAll(".form-text.text-danger").forEach((warning) => (warning.style.display = "none"));
     form.querySelectorAll(".form-control:required").forEach((elem) => elem.classList.add("is-valid"));
     document.getElementById("subtitle").innerText = "Modifica prodotto";
     document.getElementById("delete-btn").classList.remove("d-none");
-    const creaButton = document.getElementById("crea-btn");
-    creaButton.classList.remove("btn-primary");
-    creaButton.classList.add("btn-success");
-    creaButton.innerText = "Modifica";
+    document.getElementById("crea-btn").innerText = "Modifica";
 
     try {
-      console.log(endpoint);
       const resp = await fetch(endpoint, fetchOpt);
       handleError(resp);
       const productData = await resp.json();
       const { _id, name, description, brand, imageUrl, price, userId, createdAt, updatedAt, __v } = productData;
-
       document.getElementById("name").value = name;
       document.getElementById("description").value = description;
       document.getElementById("imageUrl").value = imageUrl;
@@ -93,7 +87,6 @@ const handleValidate = function () {
 
 const handleSubmit = async (event) => {
   event.preventDefault();
-
   const newProduct = {
     name: document.getElementById("name").value,
     description: document.getElementById("description").value,
@@ -101,8 +94,6 @@ const handleSubmit = async (event) => {
     brand: document.getElementById("brand").value,
     price: document.getElementById("price").value,
   };
-
-  console.log("HERE ON SUBMIT", newProduct);
 
   try {
     isLoading(true);
@@ -136,13 +127,9 @@ const handleSubmit = async (event) => {
 
 const handleDelete = async () => {
   isLoading(true);
-
   const hasAccepted = confirm("Sei convinto di voler elimilare il prodotto?");
-
   if (hasAccepted) {
     try {
-      console.log("DELETE");
-
       const resp = await fetch(endpoint, {
         method: "DELETE",
         headers: {
@@ -152,9 +139,7 @@ const handleDelete = async () => {
       });
       handleError(resp);
       const deletedObj = await resp.json();
-
       alert("Hai eliminato il prodotto " + deletedObj.name);
-
       window.location.assign("./index.html");
     } catch (error) {
       alert("ERROR: " + error.message);
@@ -164,12 +149,13 @@ const handleDelete = async () => {
   }
   isLoading(false);
 };
+
 const handleReset = function () {
   const hasAccepted = confirm("Sei sicuro di voler cancellare tutti i campi inseriti?");
   if (hasAccepted) {
     const form = document.querySelector("form");
     form.reset();
-    form.querySelectorAll(".form-text.text-danger").forEach((error) => (error.style.display = "block"));
+    form.querySelectorAll(".form-text.text-danger").forEach((warning) => (warning.style.display = "block"));
     form.querySelectorAll(".form-control:required").forEach((elem) => elem.classList.add("is-invalid"));
   }
 };
