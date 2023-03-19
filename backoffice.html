@@ -9,6 +9,11 @@
       rel="stylesheet"
       integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
       crossorigin="anonymous" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet" />
     <link rel="stylesheet" href="./backofficeStyle.css" />
     <title>Backoffice</title>
   </head>
@@ -29,7 +34,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto d-flex flex-grow-1 mb-2 mb-lg-0">
             <li class="nav-item me-auto">
-              <a class="nav-link active" aria-current="page" href="./index.html">Home</a>
+              <a class="nav-link" aria-current="page" href="./index.html">Home</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="./backoffice.html">Backoffice</a>
@@ -39,18 +44,18 @@
       </div>
     </nav>
 
-    <div class="container mt-5">
+    <div class="container mb-5">
       <div class="row justify-content-center">
         <div class="col-8">
-          <h2 class="d-inline-block">Backoffice</h2>
-          <h5 id="subtitle" class="d-inline-block">— Crea nuovo prodotto</h5>
-          <div class="spinner-border text-info float-end d-none" role="status">
+          <h2 class="d-inline-block">BACKOFFICE _</h2>
+          <h5 id="subtitle" class="d-inline-block">Crea nuovo prodotto</h5>
+          <div class="spinner-border text-warning float-end d-none" role="status">
             <span class="visually-hidden">Loading...</span>
           </div>
           <hr class="border-secondary" />
-          <form class="mt-4" onsubmit="handleSubmit(event) ">
+          <form class="mt-4 mb-5" onsubmit="handleSubmit(event) ">
             <div class="mb-3">
-              <label for="name" class="form-label">Nome Prodotto</label>
+              <label for="name" class="form-label">Nome Prodotto:</label>
               <input
                 type="text"
                 class="form-control"
@@ -58,10 +63,10 @@
                 placeholder="Inserisci un nome"
                 aria-describedby="name"
                 required />
-              <div id="name-form-text" class="form-text text-warning">Nome obbligatorio</div>
+              <div id="name-form-text" class="form-text text-danger">Nome obbligatorio</div>
             </div>
             <div class="mb-3">
-              <label for="imageUrl" class="form-label">Url immagine Prodotto</label>
+              <label for="imageUrl" class="form-label">Url immagine Prodotto:</label>
               <input
                 type="text"
                 class="form-control"
@@ -69,10 +74,10 @@
                 placeholder="Inserisci una Url"
                 aria-describedby="imageUrl"
                 required />
-              <div id="imageUrl-form-text" class="form-text text-warning">Descrizione obbligatoria</div>
+              <div id="imageUrl-form-text" class="form-text text-danger">Descrizione obbligatoria</div>
             </div>
             <div class="mb-3">
-              <label for="description" class="form-label">Descrizione</label>
+              <label for="description" class="form-label">Descrizione:</label>
               <textarea
                 class="form-control"
                 id="description"
@@ -80,10 +85,10 @@
                 placeholder="Inserisci una descrizione"
                 row="4"
                 required></textarea>
-              <div id="description-form-text" class="form-text text-warning">Descrizione obbligatoria</div>
+              <div id="description-form-text" class="form-text text-danger">Descrizione obbligatoria</div>
             </div>
             <div class="mb-3">
-              <label for="brand" class="form-label">Brand</label>
+              <label for="brand" class="form-label">Brand:</label>
               <input
                 type="text"
                 class="form-control"
@@ -91,10 +96,10 @@
                 placeholder="Inserisci il brand"
                 aria-describedby="brand"
                 required />
-              <div id="brand-form-text" class="form-text text-warning">Brand obbligatorio</div>
+              <div id="brand-form-text" class="form-text text-danger">Brand obbligatorio</div>
             </div>
             <div class="mb-3">
-              <label for="price" class="form-label">Prezzo</label>
+              <label for="price" class="form-label">Prezzo:</label>
               <input
                 type="number"
                 class="form-control"
@@ -102,23 +107,85 @@
                 aria-describedby="price"
                 placeholder="Inserisci il prezzo"
                 required />
-              <div id="price-form-text" class="form-text text-warning">Prezzo obbligatorio</div>
+              <div id="price-form-text" class="form-text text-danger">Prezzo obbligatorio</div>
             </div>
-            <div class="d-flex gap-2">
-              <button id="reset-btn" type="button" class="btn btn-outline-secondary" onclick="handleReset()">
-                Reset
+            <div class="d-flex gap-2 justify-content-end">
+              <button id="reset-btn" type="button" class="btn btn-warning" onclick="handleReset()">
+                Reset<svg
+                  class="ms-2"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  class="bi bi-arrow-clockwise"
+                  viewBox="0 0 16 16">
+                  <path fill-rule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2v1z" />
+                  <path
+                    d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466z" />
+                </svg>
               </button>
-              <button id="crea-btn" type="submit" class="btn btn-primary me-auto" onclick="handleValidate()">
+              <button id="crea-btn" type="submit" class="btn btn-success text-dark" onclick="handleValidate()">
                 Crea
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  class="bi bi-plus-circle"
+                  viewBox="0 0 16 16">
+                  <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                  <path
+                    d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
+                </svg>
               </button>
-              <button id="delete-btn" type="button" class="btn btn-warning d-none" onclick="handleDelete()">
+              <button id="delete-btn" type="button" class="btn btn-danger text-dark d-none" onclick="handleDelete()">
                 Delete
               </button>
             </div>
           </form>
+          <hr />
         </div>
       </div>
     </div>
+
+    <footer class="footer mt-5 pt-5 pb-4">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4">
+            <h4>Chi siamo</h4>
+            <p>
+              Siamo una factory che realizza birra di alta qualità su richiesta, utilizzando solo ingredienti naturali,
+              seguendo le ricette tradizionali o quelle indicate da voi.....crea la tua birra!
+            </p>
+          </div>
+          <div class="col-md-4">
+            <h4>Contattaci</h4>
+            <p>
+              Via delle Birre, 1<br />00100 Roma<br />Telefono: 06 12345678<br />Email: info@birrificioartigianale.it
+            </p>
+          </div>
+          <div class="col-md-4">
+            <h4>Social</h4>
+            <ul class="list-inline">
+              <li class="list-inline-item">
+                <a href="#"><img src="./img/facebook.png" alt="beer logo" /></a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#"><img src="./img/instagram.png" alt="beer logo" /></a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#"><img src="./img/twitter-sign.png" alt="beer logo" /></a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#"><img src="./img/youtube.png" alt="beer logo" /></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <hr />
+        <p class="text-center">&copy; 2023 Birrificio Artigianale</p>
+      </div>
+    </footer>
 
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
