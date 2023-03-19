@@ -4,11 +4,16 @@ body {
 }
 
 /* Stile del contenitore principale */
-.container {
-  max-width: 800px;
-  margin: 0 auto;
+.container-fluid {
+  /* max-width: 800px;*/
+  margin: 0;
 }
 
+.dimension {
+  max-width: 550px;
+  max-height: 550px;
+  box-sizing: border-box;
+}
 /* Stile del titolo del prodotto */
 h3 {
   font-size: 24px;
@@ -16,14 +21,9 @@ h3 {
   margin-bottom: 20px;
   color: #333;
 }
-h2 {
-  background-color: lemonchiffon;
-}
+
 h5 {
   background-color: lemonchiffon;
-}
-.big {
-  font-size: 1.3rem;
 }
 
 /* Stile della sezione del dettaglio prodotto */

@@ -12,6 +12,7 @@ const fetchOpt = {
 window.onload = async () => {
   isLoading(true);
   const container = document.getElementById("product-details");
+  const containerImg = document.getElementById("img-details");
   try {
     const res = await fetch("https://striveschool-api.herokuapp.com/api/product/" + selectedId, fetchOpt);
     handleError(res);
@@ -19,26 +20,24 @@ window.onload = async () => {
     console.log(productData);
 
     const { _id, name, description, brand, imageUrl, price, userId, createdAt, updatedAt, __v } = productData;
-
+    containerImg.innerHTML = `<img class="dimension" src="${imageUrl}" alt="beer logo" />`;
     container.innerHTML = `
-                    <h2 class="fw-bold py-3 ps-2 mb-4">Dettagli Birra:</h2>
-                    <p class="big"><strong>Nome: </strong> ${name}</p>
-                    <hr>
-                    <p class="big"><strong>Prezzo: </strong>${price}€</p>
-                    <hr>
-                    <p class="big"><strong>Descrizione: </strong>${description}</p>
-                    <hr>
-                    <p class="big"><strong>Brand: </strong>${brand}</p>
-                    <hr>
+                    <h5 class="fw-bold py-3 ps-2 mb-4">Dettagli Birra:</h5>
+                    <ul class="list-group list-group-flush ">
+                        <li class="list-group-item ps-2 bg-warning"><strong>Nome:</strong> ${name}</li>
+                        <li class="list-group-item ps-2 bg-warning"><strong>Brand:</strong> ${brand}</li>
+                        <li class="list-group-item ps-2 bg-warning"><strong>Description:</strong> ${description}</li>
+                        <li class="list-group-item ps-2 bg-warning"><strong>Price:</strong> ${price}</li>
+                    </ul>
                     
-                    <h5 class="fw-bold py-3 ps-2">Server Details</h5>
+                    <h5 class="fw-bold py-3 ps-2 my-3">Server Details</h5>
                     <ul class="list-group list-group-flush ">
                         <li class="list-group-item ps-2 bg-warning"><strong>id:</strong> ${_id}</li>
                         <li class="list-group-item ps-2 bg-warning"><strong>userId:</strong> ${userId}</li>
                         <li class="list-group-item ps-2 bg-warning"><strong>createdAt:</strong> ${createdAt}</li>
                         <li class="list-group-item ps-2 bg-warning"><strong>updatedAt:</strong> ${updatedAt}</li>
                     </ul>
-                    <button id="changeBtn" class="btn mt-5" onclick="handleClick()">Modifica prodotto</button>
+                    <button id="changeBtn" class="btn mt-4" onclick="handleClick()">Modifica prodotto</button>
                     `;
   } catch (err) {
     alert("ERROR: " + err.message);
